@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<div class="text-center">
+    <h1>Gossips</h1>
+</div>
+<div class="text-center">
+    <%= link_to 'New Gossip', new_gossip_path, class:'btn btn-success' %>
+</div>
+
+
+
+
+
+<div class="row">
+<% @gossips.each do |gossip| %>
+  <div class="col-4">
+    <div class="card mt-5" style="width: 18rem;">
+
+      <div class="card-body">
+
+        <h5 class="card-title"> <img src="./img/sun.png" width=100> <%= gossip.author %></h5>
+
+        <p class="card-text"><%= gossip.content %></p>
+
+        <a href="#" class="card-link">  <%= link_to 'Show', gossip, class:'btn btn-primary' %>
+          <%= link_to 'Edit', edit_gossip_path(gossip), class:'btn btn-warning' %>
+          <%= link_to 'Destroy', gossip, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

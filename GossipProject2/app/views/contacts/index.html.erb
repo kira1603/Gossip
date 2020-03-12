@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="text-center">
+  <h1>Contact</h1>
+</div>
+
+<%= link_to 'New Contact', new_contact_path ,class:'btn btn-success'%>
+
+<div class="row">
+  <% @contacts.each do |contact| %>
+  <div class="col-4">
+    <div class="card mt-3" style="width: 18rem;">
+        <img src="./img/user.png" width=50>
+      <div class="card-body">
+
+        <h5 class="card-title"><%= contact.first_name %></h5>
+        <h4> <%= contact.last_name %> </h4>
+        <p class="card-text"> <%= contact.tel %> </p>
+          <p class="card-text"> <%= contact.email %> </p>
+
+
+          <%= link_to 'Show', contact, class: 'btn btn-primary' %>
+          <%= link_to 'Edit', edit_contact_path(contact), class:'btn btn-warning' %>
+          <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
